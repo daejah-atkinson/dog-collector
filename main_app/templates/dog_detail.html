@@ -49,8 +49,24 @@
       </span>
       <div class="detail__songs mb-5">
         <h3 class="title is-3 rescue">Rescues</h3>
-    
-        {% for rescue in dog.rescue.all %}
+        <form class="mb-5" action="{% url 'rescue_create' dog.pk %}" method="post">
+          {% csrf_token %}
+          <div class="field has-addons">
+              <div class="control">
+                  <input
+                      class="input"
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                  />
+              </div>
+              <div class="control">
+                  <input class="button button-color" type="submit" value="Add Rescue" />
+              </div>
+          </div>
+      </form>
+        {% for rescue in dog.rescues.all %}
         <div class="song">
           <span>{{forloop.counter}}</span>
           <span><b>{{rescue.name}}</b></span>

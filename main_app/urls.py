@@ -12,4 +12,5 @@ urlpatterns = [
     path('dogs/<int:pk>/update',views.DogUpdate.as_view(), name="dog_update"),
     path('dogs/<int:pk>/delete',views.DogDelete.as_view(), name="dog_delete"),
     path('groups/<int:pk>/dogs/<int:dog_pk>/', views.GroupDogAssoc.as_view(), name="group_dog_assoc"),
+    path('dogs/<int:pk>/rescues/new/', views.RescueCreate.as_view(), name="rescue_create")
 ]

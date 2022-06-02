@@ -10,7 +10,7 @@
             {% for dog in group.dogs.all %}
                 <div class="song">
                     <span>{{forloop.counter}}</span>
-                    <span><b>{{dog.breed}}</b></span>
+                    <span class='group-color'><b><a  href="{% url 'dog_detail' dog.pk %}">{{dog.breed}}</a></b></span>
                     <span>
                         <!--   Here we are creating an anchor
                         tag that when clicked will hit our new

@@ -3,7 +3,7 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from .models import Dog, Group
+from .models import Dog, Group, Rescue
 from django.urls import reverse
 
 # Create your views here.
@@ -74,3 +74,11 @@ class GroupDogAssoc(View):
             # add to the join table the given song_id
             Group.objects.get(pk=pk).dogs.add(dog_pk)
         return redirect('home')
+
+class RescueCreate(View):
+
+    def post(self, request, pk):
+        name = request.POST.get("name")
+        dog = Dog.objects.get(pk=pk)
+        Rescue.objects.create(name=name, dog=dog)
+        return redirect('dog_detail', pk=pk)

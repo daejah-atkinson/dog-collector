@@ -7,6 +7,7 @@
 
 <h1 class="title pt-5">{{header}}</h1>
 
+<a class="button button-color add-dog" href="{% url 'dog_create' %}">Add Dog</a>
 <div class="gallery">
   {% for dog in dogs %}
   <a href="{% url 'dog_detail' dog.pk %}">
@@ -28,6 +29,6 @@
     </div>
   </article>
   {% endfor %}
-  <a class="button is-dark add-dog" href="{% url 'dog_create' %}">Add Dog</a>
+ 
 </div>
 {% endblock %}

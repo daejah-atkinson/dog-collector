@@ -10,12 +10,13 @@ body {
 }
 
 .navbar a {
-    color: white;
+    color:#CCD5FF;
 }
 
 .title {
     color: #FE5F55;
 }
+
 
 .about p {
     padding: 5px;
@@ -114,4 +115,15 @@ hr {
   
   .text-medium{
     font-size: 17px;
+  }
+
+  .button-color {
+    background-color: #577399;
+  }
+
+  .group-color a {
+    color: #577399;
+  }
+  .group-color a:hover {
+    color: #CCD5FF;
   }
