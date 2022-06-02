@@ -47,11 +47,27 @@
           </div>
         </div>
       </span>
-
+      <div class="detail__songs mb-5">
+        <h3 class="title is-3 rescue">Rescues</h3>
+    
+        {% for rescue in dog.rescue.all %}
+        <div class="song">
+          <span>{{forloop.counter}}</span>
+          <span><b>{{rescue.name}}</b></span>
+        </div>
+        {% empty %}
+        <article class="message">
+          <div class="message-header">
+            <p class='text-medium'>No Rescues Listed</p>
+          </div>
+        </article>
+    
+        {% endfor %}
+      </div>
 
     <div class="detail__about">
         <h4 class="title is-4">About</h4>
-        <p>{{dog.about}}</p>
+        <p class='text-medium'>{{dog.about}}</p>
     </div>
 </div>
 

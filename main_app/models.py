@@ -21,3 +21,10 @@ class Group(models.Model):
 
     def __str__(self):
         return self.type
+
+class Rescue(models.Model):
+    name = models.CharField(max_length=150)
+    dog = models.ForeignKey(Dog, on_delete=models.CASCADE, related_name='rescues')
+
+    def __str__(self):
+        return self.name

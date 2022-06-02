@@ -108,4 +108,10 @@ hr {
     border-radius: 5px;
   }
   
+  .dropdown {
+    margin-bottom: 15px;
+  }
   
+  .text-medium{
+    font-size: 17px;
+  }
