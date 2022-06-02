@@ -1,0 +1,58 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="detail__img">
+    <img src="{{dog.img}}" alt="{{dog.breed}}" />
+</div>
+<div class="detail__name">
+    <h1 class="title detail-title">{{dog.breed}}</h1>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+        <a href="{% url 'dog_update' dog.pk %}" class="button is-info">
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'dog_delete' dog.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <span>
+        <div class="dropdown">
+          <div class="dropdown-trigger">
+            <button
+              class="button"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span>Add to Group</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              {% for group in groups %}
+              <a
+                href="{% url 'group_dog_assoc' group.pk dog.pk %}?assoc=add"
+                class="dropdown-item"
+              >
+                {{group.type}}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </span>
+
+
+    <div class="detail__about">
+        <h4 class="title is-4">About</h4>
+        <p>{{dog.about}}</p>
+    </div>
+</div>
+
+{% endblock %}
